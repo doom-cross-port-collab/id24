@@ -73,7 +73,7 @@ In short, assuming child offsets are set to `(0,0)`, if the `list` is set to "To
 
 </td>
 <td width="40%" valign="middle" align="center">
-<img src="https://github.com/user-attachments/assets/79467512-5d54-4eb5-8c75-1bd691640745" width="350">
+<img src="./images/alignmentanchorsHMPA.png" width="350">
 <br>
 </td>
 </tr>
