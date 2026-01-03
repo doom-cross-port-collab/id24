@@ -60,7 +60,7 @@ A container for dynamically positioning child elements. Automatically calculates
 The new `translucency` boolean field enables rendering elements with a global transparency map defined by the Boom standard.
 
 ## Support for "image cropping" on graphical elements
-The `graphic`, `face` and `facebg` element types can have an optional `crop` object with the following optional fields:
+The `graphic`, `face` and `facebg` element types can have an optional `crop` object. Patch offsets are ignored if the 'crop' object is present.
 
 `crop`
 | Name | Type | Description
@@ -180,7 +180,7 @@ Automap mode flags:
 3 - current level author (from UMAPINFO)  
 
 ## Component element
-The concept of a separate HUD no longer exists. All HUD elements are now defined in the SBARDEF lump, including the classic Doom "message line". HUD components always use 320x200 fullscreen virtual resolution.
+The concept of a separate HUD no longer exists. All HUD elements are now defined in the SBARDEF lump, including the classic Doom "message line".
 
 `component`
 | Name | Type | Description
@@ -218,7 +218,7 @@ From vaious source ports:
 | `"announce_level_title"` | Level name announce line
 
 ## Carousel element
-Weapon carousel HUD element compatible with Unity and KEX ports. It always use 320x200 fullscreen virtual resolution.
+Weapon carousel HUD element compatible with Unity and KEX ports.
 
 `carousel`
 |Name|Type|Description
