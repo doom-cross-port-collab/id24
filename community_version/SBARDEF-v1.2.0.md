@@ -180,7 +180,7 @@ Automap mode flags:
 3 - current level author (from UMAPINFO)  
 
 ## Component element
-The concept of a separate HUD no longer exists. All HUD elements are now defined in the SBARDEF lump, including the classic Doom "message line". HUD components always use 320x200 fullscreen virtual resolution.
+The concept of a separate HUD no longer exists. All HUD elements are now defined in the SBARDEF lump, including the classic Doom "message line".
 
 `component`
 | Name | Type | Description
@@ -218,7 +218,7 @@ From vaious source ports:
 | `"announce_level_title"` | Level name announce line
 
 ## Carousel element
-Weapon carousel HUD element compatible with Unity and KEX ports. It always use 320x200 fullscreen virtual resolution.
+Weapon carousel HUD element compatible with Unity and KEX ports.
 
 `carousel`
 |Name|Type|Description
