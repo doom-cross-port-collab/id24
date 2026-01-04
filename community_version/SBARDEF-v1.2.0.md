@@ -43,18 +43,43 @@ Align elements according to the widescreen layout offset.
 | `0x80` | Move the element to the right in widescreen mode.
 
 ## List of elements
-A container for dynamically positioning child elements. Automatically calculates the width and height for each element tree and arranges them sequentially in either a vertical or horizontal layout.
+A container for dynamically positioning child elements. Automatically calculates the total bounding box for all "active" child elements and arranges them sequentially in either a vertical or horizontal layout. 
+Only children whose `conditions` are met are included in the layout calculation; others are skipped, and the list is recalculated to fill the gap. The end state is a dynamically arranged series of child elements with no gaps.
 
 `list` 
 | Name | Type | Description |
 |--|--|--|
 | `x` | integer | The virtual x position of this element.
 | `y` | integer | The virtual y position of this element.
-| `conditions` | array of `condition`| A series of conditions to meet to render both this and all child elements. Can be null; an array length of 0 is considered an error condition.
-| `children` | array of `sbarelem`| An array of child elements. Can be null; an array length of 0 is considered an error condition.
+| `alignment` | bitfield | The alignment of the entire list stack relative to (x, y). Also determines the alignment of children.
+| `conditions` | array of `condition`| A series of conditions to meet to render both this and all child elements.
+| `children` | array of `sbarelem`| An array of child elements.
 | `horizontal` | boolean | If `true`, child elements are positioned horizontally. Default: `false` (vertical).
-| `reverse` | boolean | If `true`, child elements are drawn in opposite direction.
-| `spacing` | integer | The gap (in pixels) between child elements.
+| `spacing` | integer | The gap (in pixels) between active child elements.
+
+<table>
+<tr>
+<td width="60%" valign="middle">
+
+The `list` uses the `alignment` flags to determine how the ordered list of child elements are drawn relative to its anchor coordinate `(x, y)`. Elements are always processed in the logical order they are defined in the file's layout.
+
+Children are automatically aligned on the axis opposite to the flow of elements to match the container's `alignment`. 
+- In a **Horizontal** list, children respect `Vertical` alignment flags (e.g., if the list is `Vertical Bottom`, all children will be flush against the bottom edge of the list's total height).
+- In a **Vertical** list, children respect `Horizontal` alignment flags.
+
+Children within a `list` typically use `x: 0, y: 0`. If non-zero coordinates are provided for a child, they are treated as an additional relative offset from that child's calculated position within the sequential stack.
+
+In short, assuming child offsets are set to `(0,0)`, if the `list` is set to "Top Right" alignment, the **top** and **right** edges of the child elements graphic patches should all be aligned, regardless of the varying dimensions of the child elements.
+
+</td>
+<td width="40%" valign="middle" align="center">
+<img src="./images/alignmentanchorsHMPA.png" width="350">
+<br>
+</td>
+</tr>
+</table>
+
+---
 
 ## Element translucency
 The new `translucency` boolean field enables rendering elements with a global transparency map defined by the Boom standard.
