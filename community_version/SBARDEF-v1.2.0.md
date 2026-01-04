@@ -60,7 +60,7 @@ A container for dynamically positioning child elements. Automatically calculates
 The new `translucency` boolean field enables rendering elements with a global transparency map defined by the Boom standard.
 
 ## Support for "image cropping" on graphical elements
-The `graphic`, `face` and `facebg` element types can have an optional `crop` object. Patch offsets are ignored if the 'crop' object is present.
+The `graphic`, `face` and `facebg` element types can have an optional `crop` object with the following optional fields:
 
 `crop`
 | Name | Type | Description
