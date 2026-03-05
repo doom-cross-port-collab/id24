@@ -19,6 +19,10 @@ The Doom HUD font contains a total of 95 glyphs, which represent the ASCII chara
 | `type` | integer | One of the values matching the type enumeration described in the number font section.
 | `stem` | string | A string representing the first few characters of each glyph’s name in the WAD dictionary.
 
+## The `name` field in the `statusbar` and `sbarelem` elements
+
+An optional string identifier for the element. This field is intended for use in editors or configuration menus to provide a human-readable reference to the element. The `name` field has no effect on runtime rendering behavior.
+
 ## Status bar elements alignment
 Alignment flags were undocumented in SBARDEF 0.99.2 spec.
 
@@ -48,6 +52,7 @@ A container for dynamically positioning child elements. Automatically calculates
 `list` 
 | Name | Type | Description |
 |--|--|--|
+| `name` | string | Optional name of the element.
 | `x` | integer | The virtual x position of this element.
 | `y` | integer | The virtual y position of this element.
 | `conditions` | array of `condition`| A series of conditions to meet to render both this and all child elements. Can be null; an array length of 0 is considered an error condition.
@@ -160,6 +165,7 @@ Automap mode flags:
 `string`
 |Name|Type|Description
 |--|--|--|
+| `name` | string | Optional name of the element.
 | `x` | integer | The virtual x position of this element.
 | `y` | integer | The virtual y position of this element.
 | `alignment` | bitfield | The alignment of this element’s rendered graphics.
@@ -185,6 +191,7 @@ The concept of a separate HUD no longer exists. All HUD elements are now defined
 `component`
 | Name | Type | Description
 |--|--|--|
+| `name` | string | Optional name of the element.
 | `type` | string | String matching the type described in the component section.
 | `x` | integer | The virtual x position of this element.
 | `y` | integer | The virtual y position of this element.
@@ -223,6 +230,7 @@ Weapon carousel HUD element compatible with Unity and KEX ports.
 `carousel`
 |Name|Type|Description
 |--|--|--|
+| `name` | string | Optional name of the element.
 | `x` | integer | Ignored. Carousel element is always centered.
 | `y` | integer | The virtual y position of this element.
 | `alignment` | bitfield | The alignment of this element’s rendered graphics.
@@ -231,6 +239,22 @@ Weapon carousel HUD element compatible with Unity and KEX ports.
 | `translucency` | boolean | Enable global translucency.
 | `conditions` | array of `condition`| A series of conditions to meet to render both this and all child elements. Can be null; an array length of 0 is considered an error condition.
 | `children` | array of `sbarelem`| An array of child elements. Can be null; an array length of 0 is considered an error condition.
+
+## Minimap element
+
+`minimap`
+|Name|Type|Description
+|--|--|--|
+| `name` | string | Optional name of the element.
+| `x` | integer | The virtual x position of this element.
+| `y` | integer | The virtual y position of this element.
+| `width` | integer | Width of the minimap in virtual pixels.
+| `height` | integer | Height of the minimap in virtual pixels.
+| `alignment` | bitfield | The alignment of this element's rendered graphics.
+| `conditions` | array of `condition`| A series of conditions to meet to render both this and all child elements. Can be null; an array length of 0 is considered an error condition.
+| `children` | array of `sbarelem`| An array of child elements. Can be null; an array length of 0 is considered an error condition.
+| `background` | integer | Background style: 0 - no background, 1 - transparent dark background, 2 - solid black background
+| `scale` | number | Automap zoom level. Default: 1.0
 
 ## Version History
 
