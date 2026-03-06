@@ -264,12 +264,13 @@ Weapon carousel HUD element compatible with Unity and KEX ports.
 - Added new `number` types for kills, items, and secrets.
 - Added new conditions for kills, items, secrets and powerups.
 - Added new `number` type for powerup duration.
+- Added new `name` field to `statusbar` and `sbarelem` elements.
+- Added new `minimap` element.
 
 ### v1.1.1
 - Added two previously missing alignment flags that ignore patch offsets.
 - Updated values for widescreen alignment flags.
 - Rewrote the experimental "image cropping" feature and introduced the `crop` object.
-- Clarified that HUD components always use fullscreen virtual resolution.
 - Added conditions 43 and 44 to check whether a patch is empty.
 - Updated conditions 20 and 21.
 
